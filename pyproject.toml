@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "smartenergyhome"
+version = "0.1.0"
+description = ""
+authors = ["Piotr <piotr.zegarekk@gmail.com>"]
+license = "MIT License"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+django = "5.0"
+psycopg2-binary = "2.9.9"
+python = "3.10.2"
+requests = "2.31.0"
+uuid = "1.30"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "7.4.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
