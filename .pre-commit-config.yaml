@@ -6,7 +6,7 @@ repos:
     -   id: check-yaml
     -   id: check-merge-conflict
     -   id: end-of-file-fixer
-        exclude: ^(energy_scraper/settings.py|web_app/models.py|web_app/migrations/.*)
+        exclude: ^(energy_scraper/energy_scraper/settings.py|energy_scraper/energy_scraper/middlewares.py)
     -   id: trailing-whitespace
 -   repo: https://github.com/pycqa/isort
     rev: 5.12.0
@@ -22,4 +22,4 @@ repos:
     rev: 6.1.0
     hooks:
     - id: flake8
-      exclude: ^(smart_energy/settings.py|energy_scraper/models.py|energy_scraper/migrations/.*)
+      exclude: ^(smart_energy/settings.py|energy_scraper/energy_scraper/settings.py|energy_scraper/energy_scraper/middlewares.py|energy_scraper/energy_scraper/pipelines.py)
