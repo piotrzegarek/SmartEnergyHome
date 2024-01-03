@@ -12,6 +12,7 @@ services:
     depends_on:
       - db
       - splash
+      - redis
 
   splash:
     image: scrapinghub/splash:3.5
@@ -33,5 +34,22 @@ services:
       timeout: 3s
       retries: 10
 
+  redis:
+    image: redis:7.0.0
+    restart: always
+    ports:
+      - "6380:6380"
+    command:
+      redis-server --port 6380 --save 20 1 --loglevel warning
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -p 6380 ping | grep PONG"]
+      interval: 1s
+      timeout: 3s
+      retries: 5
+
+
 volumes:
   postgres_data:
+  redis_data:
