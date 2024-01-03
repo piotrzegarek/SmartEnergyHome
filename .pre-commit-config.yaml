@@ -22,7 +22,11 @@ repos:
     rev: 23.7.0
     hooks:
     - id: black
-      exclude: ^api/migrations/.*
+      exclude: |
+          (?x)^(
+              smart_energy/celery.py|
+              api/migrations/.*
+          )$
 -   repo: https://github.com/pycqa/flake8.git
     rev: 6.1.0
     hooks:
