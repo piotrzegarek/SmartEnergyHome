@@ -49,6 +49,31 @@ services:
       timeout: 3s
       retries: 5
 
+  celery_worker:
+    build: .
+    image: celery_worker
+    command: ./start-celeryworker.sh
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - db
+      - api
+
+  celery_beat:
+    build: .
+    image: celery_beat
+    command: ./start-celerybeat.sh
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - db
+      - api
 
 volumes:
   postgres_data:
