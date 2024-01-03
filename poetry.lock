@@ -436,6 +436,25 @@ w3lib = ">=1.17.0"
 "zope.interface" = ">=5.1.0"
 
 [[package]]
+name = "scrapy-djangoitem"
+version = "1.1.1"
+description = "Scrapy extension to write scraped items using Django models"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+
+[[package]]
+name = "scrapy-splash"
+version = "0.9.0"
+description = "JavaScript support for Scrapy using Splash"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "service-identity"
 version = "23.1.0"
 description = "Service identity verification for pyOpenSSL & cryptography."
@@ -622,7 +641,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "3.10.2"
-content-hash = "d0c9bb36bdb5a903298436415108bc4cfacdfff6ac9cc4f622b627a6ea135dcc"
+content-hash = "a6c5557ebbe6c79478d3a1b46625f76e027d61e7dfb0658fb24d31bb7780f6a0"
 
 [metadata.files]
 asgiref = [
@@ -1088,6 +1107,14 @@ requests-file = [
 scrapy = [
     {file = "Scrapy-2.11.0-py2.py3-none-any.whl", hash = "sha256:a7f36544d1f5ceb13cff9b7bc904bd7c0fc43a3af0fbe5aa2034fd937cf092d1"},
     {file = "Scrapy-2.11.0.tar.gz", hash = "sha256:3cbdedce0c3f0e0482d61be2d7458683be7cd7cf14b0ee6adfbaddb80f5b36a5"},
+]
+scrapy-djangoitem = [
+    {file = "scrapy-djangoitem-1.1.1.tar.gz", hash = "sha256:2c633ae1559f6e3d43c9a5ebb19aa5a64152deef434aa3fa57168e6b002d9c50"},
+    {file = "scrapy_djangoitem-1.1.1-py2.py3-none-any.whl", hash = "sha256:58da093778f2cd92734b5539adcb60d59854475050d7511c42173bd8c104acef"},
+]
+scrapy-splash = [
+    {file = "scrapy-splash-0.9.0.tar.gz", hash = "sha256:ecf130264dc08e0c461c8607ecad777468a64ad01dedb2629c0f81bd5fcd7295"},
+    {file = "scrapy_splash-0.9.0-py2.py3-none-any.whl", hash = "sha256:1dc8f8a1c4c4e4341b73987d28c17f82f6a5afeaf585f23449c695e5dcfd8b39"},
 ]
 service-identity = [
     {file = "service_identity-23.1.0-py3-none-any.whl", hash = "sha256:87415a691d52fcad954a500cb81f424d0273f8e7e3ee7d766128f4575080f383"},

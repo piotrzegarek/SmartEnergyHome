@@ -30,8 +30,9 @@ repos:
       exclude: |
           (?x)^(
               smart_energy/settings.py|
-              energy_scraper/energy_scraper/settings.py|
-              energy_scraper/energy_scraper/middlewares.py|
-              energy_scraper/energy_scraper/pipelines.py|
+              energy_scraper/settings.py|
+              energy_scraper/middlewares.py|
+              energy_scraper/pipelines.py|
+              energy_scraper/spiders/energy_spider.py|
               api/migrations/.*
           )$

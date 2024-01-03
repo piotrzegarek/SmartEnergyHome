@@ -4,7 +4,7 @@ from django.db import models
 
 
 class EnergyPrice(models.Model):
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField()
     hour = models.IntegerField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
 
