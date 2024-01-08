@@ -17,8 +17,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "api",
-    "energy_scraper",
+    "apps.api",
+    "apps.energy_scraper",
 ]
 
 MIDDLEWARE = [
@@ -31,7 +31,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "smart_energy.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -49,7 +49,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "smart_energy.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database

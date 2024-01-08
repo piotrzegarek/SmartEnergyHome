@@ -20,6 +20,6 @@ RUN poetry config virtualenvs.create false \
 COPY . .
 
 # Give execution rights to start scripts
-RUN chmod +x /code/run_server.sh
-RUN chmod +x /code/start-celeryworker.sh
-RUN chmod +x /code/start-celerybeat.sh
+RUN chmod +x /code/scripts/run_server.sh
+RUN chmod +x /code/scripts/start_celeryworker.sh
+RUN chmod +x /code/scripts/start_celerybeat.sh

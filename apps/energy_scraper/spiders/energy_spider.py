@@ -1,4 +1,7 @@
+import os
+
 import scrapy
+from scrapy.exceptions import CloseSpider
 from scrapy_splash import SplashRequest
 
 from ..items import EnergyPriceItem
@@ -8,9 +11,12 @@ class EnergySpider(scrapy.Spider):
     name = "energy"
 
     def start_requests(self):
-        url = "https://www.pse.pl/dane-systemowe/funkcjonowanie-rb/raporty-dobowe-z-funkcjonowania-rb/podstawowe-wskazniki-cenowe-i-kosztowe/rynkowa-cena-energii-elektrycznej-rce"
+        url = os.getenv("SCRAP_URL")
 
-        yield SplashRequest(url=url, callback=self.parse, args={"wait": 20})
+        if url:
+            yield SplashRequest(url=url, callback=self.parse, args={"wait": 20})
+        else:
+            raise CloseSpider("No URL provided.")
 
     def parse(self, response):
         date = (

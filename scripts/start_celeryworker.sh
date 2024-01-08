@@ -3,4 +3,4 @@
 set -o errexit
 set -o nounset
 
-celery -A smart_energy worker -l INFO
+celery -A config worker -l INFO

@@ -8,9 +8,9 @@ repos:
     -   id: end-of-file-fixer
         exclude: |
           (?x)^(
-              energy_scraper/energy_scraper/settings.py|
-              energy_scraper/energy_scraper/middlewares.py|
-              api/migrations/.*
+              apps/energy_scraper/energy_scraper/settings.py|
+              apps/energy_scraper/energy_scraper/middlewares.py|
+              apps/api/migrations/.*
           )$
     -   id: trailing-whitespace
 -   repo: https://github.com/pycqa/isort
@@ -24,8 +24,9 @@ repos:
     - id: black
       exclude: |
           (?x)^(
-              smart_energy/celery.py|
-              api/migrations/.*
+              config/celery.py|
+              apps/api/migrations/.*|
+              apps/api/models.py
           )$
 -   repo: https://github.com/pycqa/flake8.git
     rev: 6.1.0
@@ -33,10 +34,10 @@ repos:
     - id: flake8
       exclude: |
           (?x)^(
-              smart_energy/settings.py|
-              energy_scraper/settings.py|
-              energy_scraper/middlewares.py|
-              energy_scraper/pipelines.py|
-              energy_scraper/spiders/energy_spider.py|
-              api/migrations/.*
+              config/settings.py|
+              apps/energy_scraper/settings.py|
+              apps/energy_scraper/middlewares.py|
+              apps/energy_scraper/pipelines.py|
+              apps/energy_scraper/spiders/energy_spider.py|
+              apps/api/migrations/.*
           )$

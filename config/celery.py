@@ -4,11 +4,11 @@ from celery import Celery
 from celery.schedules import crontab
 from django.conf import settings
 
-from energy_scraper.tasks import run_energy_scraper
+from apps.energy_scraper.tasks import run_energy_scraper
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "smart_energy.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 
-app = Celery("smart_energy")
+app = Celery("config")
 
 # config keys has `CELERY` prefix
 app.config_from_object("django.conf:settings", namespace="CELERY")
