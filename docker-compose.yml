@@ -4,13 +4,20 @@ services:
     build: .
     ports:
       - "8000:8000"
-    command: ./run_server.sh
+    command: ./scripts/run_server.sh
     env_file:
       - .env
     volumes:
       - .:/code
     depends_on:
       - db
+      - splash
+      - redis
+
+  splash:
+    image: scrapinghub/splash:3.5
+    ports:
+      - "8050:8050"
 
   db:
     image: postgres:16
@@ -27,5 +34,47 @@ services:
       timeout: 3s
       retries: 10
 
+  redis:
+    image: redis:7.0.0
+    restart: always
+    ports:
+      - "6380:6380"
+    command:
+      redis-server --port 6380 --save 20 1 --loglevel warning
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -p 6380 ping | grep PONG"]
+      interval: 1s
+      timeout: 3s
+      retries: 5
+
+  celery_worker:
+    build: .
+    image: celery_worker
+    command: ./scripts/start_celeryworker.sh
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - db
+      - api
+
+  celery_beat:
+    build: .
+    image: celery_beat
+    command: ./scripts/start_celerybeat.sh
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - db
+      - api
+
 volumes:
   postgres_data:
+  redis_data:
