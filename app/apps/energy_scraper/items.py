@@ -3,7 +3,7 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
 
-from api.models import EnergyPrice
+from core.models import EnergyPrice
 from scrapy_djangoitem import DjangoItem
 
 

@@ -12,7 +12,7 @@ def run_energy_scraper():
 
         call_command("migrate")
 
-    from energy_scraper.spiders.energy_spider import EnergySpider
+    from spiders.energy_spider import EnergySpider
 
     process = CrawlerProcess(get_project_settings())
     process.crawl(EnergySpider)
