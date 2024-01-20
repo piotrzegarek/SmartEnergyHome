@@ -6,12 +6,6 @@ repos:
     -   id: check-yaml
     -   id: check-merge-conflict
     -   id: end-of-file-fixer
-        exclude: |
-          (?x)^(
-              app/apps/energy_scraper/energy_scraper/settings.py|
-              app/apps/energy_scraper/energy_scraper/middlewares.py|
-              app/apps/core/migrations/.*
-          )$
     -   id: trailing-whitespace
 -   repo: https://github.com/pycqa/isort
     rev: 5.12.0
@@ -22,23 +16,9 @@ repos:
     rev: 23.7.0
     hooks:
     - id: black
-      exclude: |
-          (?x)^(
-              app/config/celery.py|
-              app/apps/core/migrations/.*|
-              app/apps/core/models.py
-          )$
 -   repo: https://github.com/pycqa/flake8.git
     rev: 6.1.0
     hooks:
     - id: flake8
-      exclude: |
-          (?x)^(
-              app/config/settings.py|
-              app/apps/energy_scraper/settings.py|
-              app/apps/energy_scraper/middlewares.py|
-              app/apps/energy_scraper/pipelines.py|
-              app/apps/energy_scraper/spiders/energy_spider.py|
-              app/apps/core/migrations/.*|
-              app/config/celery.py|
-          )$
+      args:
+        - --ignore=E501,W503,E203

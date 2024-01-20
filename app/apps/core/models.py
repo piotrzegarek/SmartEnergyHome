@@ -6,8 +6,7 @@ from django.db import models
 
 class EnergyPrice(models.Model):
     date = models.DateField()
-    hour = models.IntegerField(validators=[
-        MinValueValidator(1), MaxValueValidator(24)])
+    hour = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(24)])
     price = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
