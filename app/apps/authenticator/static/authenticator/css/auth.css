@@ -75,6 +75,11 @@ body {
     border-color: #639dd8; /* Set the desired border color for focused state */
 }
 
+#id_remember_me:focus {
+    box-shadow: none !important;
+}
+
+
 .errorlist li {
     color: #e75a5a;
 }

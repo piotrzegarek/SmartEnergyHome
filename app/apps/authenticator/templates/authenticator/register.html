@@ -5,7 +5,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-<link rel="stylesheet" href="{% static 'authenticator/css/register.css' %}">
+<link rel="stylesheet" href="{% static 'authenticator/css/auth.css' %}">
 {% endblock css %}
 
 {% block content %}
@@ -74,7 +74,7 @@
 
                 <div class="mt-5">
                     <p class="mb-0 text-muted">Already have an account?</p>
-                    <div class="btn btn-primary">Log in<span class="fas fa-chevron-right ms-1"></span></div>
+                    <a href="{% url "login" %}" class="btn btn-primary">Log in<span class="fas fa-chevron-right ms-1"></span></a>
                 </div>
 
             </div>

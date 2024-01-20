@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.forms import ModelForm, ValidationError
+from django.db.models import Q
+from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 
@@ -9,8 +10,46 @@ class UserCacheMixin:
     user_cache = None
 
 
-class LoginForm(UserCacheMixin, ModelForm):
-    pass
+class LoginForm(UserCacheMixin, forms.Form):
+    email_or_username = forms.CharField(label=_("Email or Username"))
+    password = forms.CharField(
+        label=_("Password"), strip=False, widget=forms.PasswordInput
+    )
+    remember_me = forms.BooleanField(label="Remember me", required=False)
+
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            if field == "remember_me":
+                self.fields[field].widget.attrs.update({"class": "form-check-input"})
+            else:
+                self.fields[field].widget.attrs.update({"class": "form-control"})
+
+    def clean_password(self):
+        password = self.cleaned_data["password"]
+
+        if not self.user_cache:
+            return password
+
+        if not self.user_cache.check_password(password):
+            raise ValidationError(_("You entered an invalid password."))
+
+        return password
+
+    def clean_email_or_username(self):
+        email_or_username = self.cleaned_data["email_or_username"]
+
+        user = User.objects.filter(
+            Q(username=email_or_username) | Q(email__iexact=email_or_username)
+        ).first()
+        if not user:
+            raise ValidationError(
+                _("You entered an invalid email address or username.")
+            )
+
+        self.user_cache = user
+
+        return email_or_username
 
 
 class RegisterForm(UserCreationForm):
