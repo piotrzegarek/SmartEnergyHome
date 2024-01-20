@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=K2D:wght@100;200;300;400;500;600;700;800&family=Modak&display=swap');
+
+.navbar {
+    background-color: #F3F8FF;
+}
+
+.navbar-brand {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Cookie', cursive;
+    margin-left: 1rem;
+    padding: 0;
+    color: #49108B;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: #49108B;
+}
+
+.nav-right-icons {
+    margin-left: 2rem;
+}
+
+.dropdown-toggle,
+.dropdown-toggle:focus,
+.dropdown-toggle:active {
+    border: none;
+}
+
+.nav-profile-img {
+    background-color: #fff;
+}

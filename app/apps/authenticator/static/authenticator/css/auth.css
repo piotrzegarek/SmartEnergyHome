@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=K2D:wght@100;200;300;400;500;600;700;800&family=Modak&display=swap');
+
 body {
     margin: 0;
     overflow: hidden;
@@ -30,6 +32,7 @@ body {
 
 .box-2 {
     padding: 30px;
+    overflow-y: auto;
 }
 
 .box-1 {
@@ -40,8 +43,14 @@ body {
     width: 62%;
 }
 
+.logo {
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: 'Cookie', cursive;
+}
+
 .h-1 {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     font-weight: 700;
 }
 

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/navbar.css" %}">
+<link rel="stylesheet" href="{% static "css/footer.css" %}">
+{% endblock css %}
+
+{% block scripts %}{% endblock scripts %}
+
+{% block content %}
+{% include "navbar.html" %}
+<div class="p-4 mb-2">
+    {% block body %}
+
+    {% endblock body %}
+</div>
+{% include "footer.html" %}
+{% endblock content %}
