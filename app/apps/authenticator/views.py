@@ -1,6 +1,6 @@
 from typing import Any
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpRequest
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
@@ -20,7 +20,7 @@ class GuestOnlyView(View):
 class RegisterView(GuestOnlyView, FormView):
     template_name = "authenticator/register.html"
     form_class = RegisterForm
-    success_url = reverse_lazy("home-page")  # adjust this URL as needed
+    success_url = reverse_lazy("home-page")
 
     def form_valid(self, form):
         user = form.save(commit=False)
@@ -33,3 +33,9 @@ class RegisterView(GuestOnlyView, FormView):
         login(self.request, user)
 
         return super().form_valid(form)
+
+
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect("login-page")
