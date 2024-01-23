@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Add Device{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "core/css/sidebar.css" %}">
+<link rel="stylesheet" href="{% static "core/css/devices.css" %}">
+{% endblock css %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-0">
+            {% include "core/includes/devices-sidebar.html" %}
+        </div>
+        <div class="col p-5">
+
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

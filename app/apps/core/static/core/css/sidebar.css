@@ -29,7 +29,8 @@
     border-bottom: 1px solid #d4d4d4;
 }
 
-.side-bar .nav-item:hover span {
+.side-bar .nav-item:hover span,
+.side-bar .nav-item span.active {
     color: #edc3ff;
 }
 
