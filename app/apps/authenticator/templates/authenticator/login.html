@@ -9,51 +9,49 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="main-box d-md-flex align-items-center justify-content-between">
-        <div class="box-1 mt-md-0 mt-5">
-            <img src="{% static "images/energy-solars.jpg" %}"
-                    class="" alt="">
-        </div>
-        <div class="box-2 d-flex flex-column h-100">
-            <div class="mt-2">
-                <p class="logo">Smart Energy</p>
-                <p class="mb-1 h-1">Log In.</p>
-                <p class="text-muted mb-4">Start managing your energy smart.</p>
+<div class="main-box d-md-flex align-items-center justify-content-between">
+    <div class="box-1 mt-md-0 mt-5">
+        <img src="{% static "images/energy-solars.jpg" %}"
+                class="" alt="">
+    </div>
+    <div class="box-2 d-flex flex-column">
+        <div class="mt-2">
+            <p class="logo mb-3">Smart Energy</p>
+            <p class="mb-1 h-1">Log In.</p>
+            <p class="text-muted mb-4">Start managing your energy smart.</p>
 
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="form-group mb-2">
-                        <label for="{{ form.email_or_username.id_for_label }}">Email or Username:</label>
-                        {{ form.email_or_username }}
-                        {{ form.email_or_username.errors }}
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="{{ form.password.id_for_label }}">Password:</label>
-                        {{ form.password }}
-                        {{ form.password.errors }}
-                    </div>
-                    <div class="form-check mb-2">
-                        {{ form.remember_me }}
-                        <label class="form-check-label" for="{{ form.remember_me.id_for_label }}">Remember me</label>
-                    </div>
-
-                    <button type="submit" class="btn btn-secondary">Log In<span class="fas fa-chevron-right ms-1"></span></button>
-                </form>
-
-                <div class="mt-5">
-                    <p class="mb-0 text-muted">Don't have account yet?</p>
-                    <a href="{% url 'register' %}" class="btn btn-primary">Sign up<span class="fas fa-chevron-right ms-1"></span></a>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group mb-2">
+                    <label for="{{ form.email_or_username.id_for_label }}">Email or Username:</label>
+                    {{ form.email_or_username }}
+                    {{ form.email_or_username.errors }}
+                </div>
+                <div class="form-group mb-2">
+                    <label for="{{ form.password.id_for_label }}">Password:</label>
+                    {{ form.password }}
+                    {{ form.password.errors }}
+                </div>
+                <div class="form-check mb-2">
+                    {{ form.remember_me }}
+                    <label class="form-check-label" for="{{ form.remember_me.id_for_label }}">Remember me</label>
                 </div>
 
+                <button type="submit" class="btn btn-secondary">Log In<span class="fas fa-chevron-right ms-1"></span></button>
+            </form>
+
+            <div class="mt-5">
+                <p class="mb-0 text-muted">Don't have account yet?</p>
+                <a href="{% url 'register' %}" class="btn btn-primary">Sign up<span class="fas fa-chevron-right ms-1"></span></a>
             </div>
 
-            <div class="mt-auto">
-                <p class="footer text-muted mb-0 mt-md-0 mt-4">By using the app you agree with our
-                    <span class="p-color me-1">terms and conditions</span>and
-                    <span class="p-color ms-1">privacy policy</span>
-                </p>
-            </div>
+        </div>
+
+        <div class="mt-auto">
+            <p class="footer text-muted mb-0 mt-md-0 mt-4">By using the app you agree with our
+                <span class="p-color me-1">terms and conditions</span>and
+                <span class="p-color ms-1">privacy policy</span>
+            </p>
         </div>
     </div>
 </div>

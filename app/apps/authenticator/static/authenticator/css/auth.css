@@ -9,17 +9,11 @@ body {
     height: 100vh; /* Set the body height to the viewport height */
 }
 
-.container {
-    margin: 50px auto;
-}
-
 .main-box {
     position: relative;
     width: 100%;
-    height: 72vh;
     margin: 20px auto;
     border: 1px solid #dddd;
-    border-radius: 18px;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -33,29 +27,32 @@ body {
 .box-2 {
     padding: 30px;
     overflow-y: auto;
+    height: 100vh;
+    padding-top: 6%;
 }
 
 .box-1 {
-    width: 38%;
+    width: 54%;
 }
 
 .box-2 {
-    width: 62%;
+    width: 46%;
 }
 
 .logo {
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: bold;
+    color: #49108B;
     font-family: 'Cookie', cursive;
 }
 
 .h-1 {
-    font-size: 2.1rem;
+    font-size: 2.5rem;
     font-weight: 700;
 }
 
 .text-muted {
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 .container .box {
@@ -81,32 +78,36 @@ body {
 
 .form-control:focus {
     box-shadow: none;
-    border-color: #639dd8; /* Set the desired border color for focused state */
+    border-color: #49108B; /* Set the desired border color for focused state */
 }
 
 #id_remember_me:focus {
     box-shadow: none !important;
 }
 
+.errorlist {
+    padding-left: 0;
+}
 
 .errorlist li {
+    list-style: none;
     color: #e75a5a;
 }
 
 .btn.btn-primary {
     background-color: transparent;
-    color: #ee82ee;
+    color: #49108B;
     border: 0px;
     padding: 0;
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 .btn.btn-secondary {
     background-color: transparent;
-    color: #ee82ee;
+    color: #49108B;
     border: 0px;
     padding: 0;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .btn.btn-primary:active,
@@ -114,19 +115,19 @@ body {
 .btn.btn-secondary:active,
 .btn.btn-secondary:hover {
     background-color: transparent;
-    color: #b900b9;
+    color: #220147;
 }
 
 .btn.btn-primary .fas.fa-chevron-right {
-    font-size: 12px;
+    font-size: 1rem;
 }
 
 .footer .p-color {
-    color: #ee82ee;
+    color: #49108B;
 }
 
 .footer.text-muted {
-    font-size: 10px;
+    font-size: 0.75rem;
 }
 
 .fas.fa-times {
