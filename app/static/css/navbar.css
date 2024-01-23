@@ -31,3 +31,21 @@
 .nav-profile-img {
     background-color: #fff;
 }
+
+.fa-door-open {
+    padding-right: 5px;
+}
+
+.nav-right-icons > .dropdown > .dropdown-menu {
+    background-color: #F3F8FF;
+}
+
+.nav-right-icons > .dropdown > .dropdown-menu  > li > .dropdown-item:hover {
+    background-color: #e7effa;
+    color: #49108B;
+}
+
+.nav-right-icons > .dropdown > .dropdown-menu  > li > .dropdown-item:link,
+.nav-right-icons > .dropdown > .dropdown-menu  > li > .dropdown-item:active  {
+    background-color: #F3F8FF;
+}
