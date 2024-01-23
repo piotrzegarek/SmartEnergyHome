@@ -4,4 +4,4 @@ set -o errexit
 set -o nounset
 
 rm -f './celerybeat.pid'
-celery -A config beat -l INFO
+celery -A app.config beat -l INFO

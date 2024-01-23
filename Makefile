@@ -9,17 +9,17 @@ init:
 
 migration:
 	@echo "${GREEN}Creating migrations...${NC}"
-	@docker-compose exec api python manage.py makemigrations
+	@docker-compose exec app python manage.py makemigrations
 	@echo "${GREEN}Migrations created successfully.${NC}"
 
 migrate:
 	@echo "${GREEN}Applying migrations...${NC}"
-	@docker-compose exec api python manage.py migrate
+	@docker-compose exec app python manage.py migrate
 	@echo "${GREEN}Migrations applied successfully.${NC}"
 
 superuser:
 	@echo "${GREEN}Creating superuser...${NC}"
-	@docker-compose exec api python manage.py createsuperuser --no-input
+	@docker-compose exec app python manage.py createsuperuser --no-input
 	@echo "${GREEN}Superuser created successfully.${NC}"
 
 up:

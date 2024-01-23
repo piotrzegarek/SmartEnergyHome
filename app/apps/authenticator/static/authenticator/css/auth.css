@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=K2D:wght@100;200;300;400;500;600;700;800&family=Modak&display=swap');
+
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Set the body height to the viewport height */
+}
+
+.main-box {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+    border: 1px solid #dddd;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.box-1 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.box-2 {
+    padding: 30px;
+    overflow-y: auto;
+    height: 100vh;
+    padding-top: 6%;
+}
+
+.box-1 {
+    width: 54%;
+}
+
+.box-2 {
+    width: 46%;
+}
+
+.logo {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #49108B;
+    font-family: 'Cookie', cursive;
+}
+
+.h-1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.text-muted {
+    font-size: 1rem;
+}
+
+.container .box {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    text-decoration: none;
+    color: #615f5fdd;
+}
+
+.box:active,
+.box:visited {
+    border: 2px solid #ee82ee;
+}
+
+.box:hover {
+    border: 2px solid #ee82ee;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #49108B; /* Set the desired border color for focused state */
+}
+
+#id_remember_me:focus {
+    box-shadow: none !important;
+}
+
+.errorlist {
+    padding-left: 0;
+}
+
+.errorlist li {
+    list-style: none;
+    color: #e75a5a;
+}
+
+.btn.btn-primary {
+    background-color: transparent;
+    color: #49108B;
+    border: 0px;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.btn.btn-secondary {
+    background-color: transparent;
+    color: #49108B;
+    border: 0px;
+    padding: 0;
+    font-size: 1.4rem;
+}
+
+.btn.btn-primary:active,
+.btn.btn-primary:hover,
+.btn.btn-secondary:active,
+.btn.btn-secondary:hover {
+    background-color: transparent;
+    color: #220147;
+}
+
+.btn.btn-primary .fas.fa-chevron-right {
+    font-size: 1rem;
+}
+
+.footer .p-color {
+    color: #49108B;
+}
+
+.footer.text-muted {
+    font-size: 0.75rem;
+}
+
+.fas.fa-times {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 20px;
+    width: 20px;
+    background-color: #f3cff379;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fas.fa-times:hover {
+    color: #ff0000;
+}
