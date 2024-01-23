@@ -1,6 +1,7 @@
 .side-bar {
     background-color: #6706c7;
     height: 100%;
+    justify-content: space-between;
 }
 
 .side-bar .nav-item span {
@@ -20,7 +21,11 @@
     width: 100%;
 }
 
-.side-bar .nav-item {
+.add-dev .nav-item {
+    border-top: 1px solid #d4d4d4;
+}
+
+.side-bar .nav-pills .nav-item {
     border-bottom: 1px solid #d4d4d4;
 }
 
