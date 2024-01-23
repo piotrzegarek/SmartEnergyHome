@@ -2,6 +2,7 @@
 
 .navbar {
     background-color: #F3F8FF;
+    height: 7vh !important;
 }
 
 .navbar-brand {

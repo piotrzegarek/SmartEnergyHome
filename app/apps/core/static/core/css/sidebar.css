@@ -1,0 +1,37 @@
+.side-bar {
+    background-color: #6706c7;
+    height: 100%;
+}
+
+.side-bar .nav-item span {
+    color: #F3F8FF;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.side-bar .icon {
+    color: #fff;
+    font-size: 1.1rem;
+    padding-right: 10px;
+}
+
+.side-bar .nav,
+.side-bar .nav-item {
+    width: 100%;
+}
+
+.side-bar .nav-item {
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.side-bar .nav-item:hover span {
+    color: #edc3ff;
+}
+
+.icon.fa-lightbulb {
+    margin-left: 4px;
+}
+
+.side-bar .nav-link .col {
+    padding: 0;
+}
