@@ -1,0 +1,23 @@
+.container-fluid,
+.container-fluid .main-row {
+    height: 100%;
+}
+
+.content-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.devices-types .card-text {
+    height: 4rem;
+}
+
+.add-btn {
+    background-color: #49108B;
+    color: #fff;
+}
+
+.add-btn:hover {
+    background-color: #6706c7;
+    color: #fff
+}

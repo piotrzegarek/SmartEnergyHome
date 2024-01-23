@@ -5,18 +5,51 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static "core/css/sidebar.css" %}">
-<link rel="stylesheet" href="{% static "core/css/devices.css" %}">
+<link rel="stylesheet" href="{% static "core/css/devices-add.css" %}">
 {% endblock css %}
 
 {% block body %}
 
 <div class="container-fluid">
-    <div class="row flex-nowrap">
+    <div class="main-row row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-0">
             {% include "core/includes/devices-sidebar.html" %}
         </div>
         <div class="col p-5">
-
+            <p class="content-title">Add New Device</p>
+            <p class="mb-3">Get personalized plans for your energy management by creating your home model. Add all of your devices that have impact on the energy in your house and get notifications about the devices usage and costs insides.</p>
+            <div class="devices-types row">
+                <div class="col-sm-4">
+                  <div class="card">
+                    <img src="{% static 'images/dishwasher.jpg' %}" class="card-img-top" alt="Dishwasher">
+                    <div class="card-body">
+                      <h5 class="card-title">Consuming Device</h5>
+                      <p class="card-text">Add new consuming device to your home. Set up a home model and get optimalization plan to better manage your energy.</p>
+                      <a href="#" class="btn add-btn">Add device</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <img src="{% static 'images/energy-bank.jpg' %}" class="card-img-top" alt="Powerbank">
+                    <div class="card-body">
+                      <h5 class="card-title">Storing Device</h5>
+                      <p class="card-text">Add new storing device to your home. Get notifications about when it's the best time to store energy for later.</p>
+                      <a href="#" class="btn add-btn">Add device</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="{% static 'images/energy-solars-2.jpg' %}" class="card-img-top" alt="Energy solars">
+                      <div class="card-body">
+                        <h5 class="card-title">Producing Device</h5>
+                        <p class="card-text">Add new producting device to your home. Get information when to produce the energy for best optimalization.</p>
+                        <a href="#" class="btn add-btn">Add device</a>
+                      </div>
+                    </div>
+                  </div>
+            </div>
         </div>
     </div>
 </div>
