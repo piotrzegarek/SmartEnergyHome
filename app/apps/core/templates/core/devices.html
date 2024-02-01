@@ -15,8 +15,13 @@
         <div class="col-auto col-md-3 col-xl-2 px-0">
             {% include "core/includes/devices-sidebar.html" %}
         </div>
-        <div class="col py-3">
-            Content area...
+        <div class="col p-5">
+            <p class="content-title">Your {{type|title}} Devices</p>
+            <div class="devices-wrapper">
+                {% for device in devices %}
+                <p>{{device.name}}</p>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>

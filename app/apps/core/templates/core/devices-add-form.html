@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Add Device{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "core/css/sidebar.css" %}">
+<link rel="stylesheet" href="{% static "core/css/devices-add.css" %}">
+{% endblock css %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="main-row row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-0">
+            {% include "core/includes/devices-sidebar.html" %}
+        </div>
+        <div class="col p-5">
+            <p class="content-title">Add New {{type|title}} Device</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group mb-2">
+                    <label for="{{ form.name.id_for_label }}">Name:</label>
+                    {{ form.name }}
+                    {{ form.name.errors }}
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-2">
+                            <label for="{{ form.period_execution.id_for_label }}">Plan use count:</label>
+                            {{ form.period_execution }}
+                            {{ form.period_execution.errors }}
+                            {{ form.plan_period.errors }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-2">
+                            <label for="{{ form.plan_period.id_for_label }}">Per:</label>
+                            {{ form.plan_period }}
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn purple-btn">Add device<span class="fas fa-chevron-right ms-2"></span></button>
+                {% if success %}
+                <p class="mt-2">Device added successfully.</p>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

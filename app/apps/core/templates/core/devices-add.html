@@ -25,7 +25,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Consuming Device</h5>
                       <p class="card-text">Add new consuming device to your home. Set up a home model and get optimalization plan to better manage your energy.</p>
-                      <a href="#" class="btn add-btn">Add device</a>
+                      <a href="{% url 'devices-add' 'consume' %}" class="btn purple-btn">Add device<span class="fas fa-chevron-right ms-2"></span></a>
                     </div>
                   </div>
                 </div>
@@ -35,7 +35,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Storing Device</h5>
                       <p class="card-text">Add new storing device to your home. Get notifications about when it's the best time to store energy for later.</p>
-                      <a href="#" class="btn add-btn">Add device</a>
+                      <a href="{% url 'devices-add' 'store' %}" class="btn purple-btn">Add device<span class="fas fa-chevron-right ms-2"></span></a>
                     </div>
                   </div>
                 </div>
@@ -45,7 +45,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Producing Device</h5>
                         <p class="card-text">Add new producting device to your home. Get information when to produce the energy for best optimalization.</p>
-                        <a href="#" class="btn add-btn">Add device</a>
+                        <a href="{% url 'devices-add' 'produce' %}" class="btn purple-btn">Add device<span class="fas fa-chevron-right ms-2"></span></a>
                       </div>
                     </div>
                   </div>

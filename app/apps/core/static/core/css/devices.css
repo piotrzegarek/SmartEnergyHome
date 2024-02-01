@@ -2,3 +2,13 @@
 .container-fluid .main-row {
     height: 100%;
 }
+
+.content-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.devices-wrapper {
+    min-height: 10vh;
+    border-top: 2px solid #49108B;
+}

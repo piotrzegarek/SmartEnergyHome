@@ -10,3 +10,22 @@
 .main-container {
     height: 93vh !important;
 }
+
+.purple-btn {
+    background-color: #49108B;
+    color: #fff;
+}
+
+.purple-btn:hover {
+    background-color: #6706c7;
+    color: #fff
+}
+
+input.form-control:focus,
+.btn:focus,
+select.form-control:focus,
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none;
+    border-color: #49108B;
+}

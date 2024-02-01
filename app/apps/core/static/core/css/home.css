@@ -1,0 +1,37 @@
+.main-wrapper {
+    padding: 2% 5%;
+}
+
+.first-row .col > div {
+    height: 40vh;
+}
+
+.tasks-wrapper,
+.devices-wrapper,
+.plan-wrapper {
+    background-color: #F3F8FF;
+    border-left: 2px solid #49108B;
+    box-shadow: 5px 5px 10px 1px rgba(177, 177, 177, 0.2);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.second-row .col .plan-wrapper {
+    height: 40vh;
+}
+
+.tasks-wrapper .title-box,
+.devices-wrapper .title-box,
+.plan-wrapper .title-box {
+    background-color: #49108B;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.tasks-wrapper .title-text,
+.devices-wrapper .title-text,
+.plan-wrapper .title-text {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.2rem;
+}

@@ -12,12 +12,12 @@
     height: 4rem;
 }
 
-.add-btn {
-    background-color: #49108B;
-    color: #fff;
+.errorlist {
+    padding-left: 2px;
 }
 
-.add-btn:hover {
-    background-color: #6706c7;
-    color: #fff
+.errorlist li {
+    list-style: none;
+    color: #e75a5a;
+    margin-top: 5px;
 }

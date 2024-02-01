@@ -3,7 +3,7 @@ from enum import Enum
 
 class PlanPeriod(Enum):
     """
-    Enum to represent type of energy device.
+    Enum to represent planing period for device.
     """
 
     WEEK = "Week"
@@ -12,3 +12,13 @@ class PlanPeriod(Enum):
     @classmethod
     def choices(cls):
         return [(key.value, key.name) for key in cls]
+
+
+class DeviceType(Enum):
+    """
+    Enum to represent type of energy device.
+    """
+
+    CONSUME = "consume"
+    STORE = "store"
+    PRODUCE = "produce"
