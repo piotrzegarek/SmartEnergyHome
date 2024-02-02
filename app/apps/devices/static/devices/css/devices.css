@@ -88,6 +88,7 @@
 }
 
 .table-body {
+    min-height: 25vh;
     max-height: 50vh;
     overflow-y: auto;
 }
@@ -96,4 +97,19 @@
     color: #797979;
     margin-left: 16px;
     transition: all 0.2s ease-in;
+}
+
+.empty-info {
+    text-align: center;
+    line-height: 25vh;
+    margin: 0;
+    color: #797979;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.table-body:has(.empty-info) {
+    background-color: #f7f7f7;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }

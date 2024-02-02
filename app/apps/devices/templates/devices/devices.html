@@ -33,6 +33,7 @@
                     </thead>
                 </table>
                 <div class="table-body">
+                    {% if devices %}
                     <table>
                         <thead></thead>
                         <tbody>
@@ -49,6 +50,9 @@
                             {% endfor %}
                         </tbody>
                     </table>
+                    {% else %}
+                    <p class="empty-info prevent-select">You don't have any devices yet.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
