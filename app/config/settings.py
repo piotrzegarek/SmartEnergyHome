@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "app.apps.authenticator",
     "app.apps.core",
+    "app.apps.devices",
     "app.apps.energy_scraper",
 ]
 

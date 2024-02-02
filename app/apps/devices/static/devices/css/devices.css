@@ -40,11 +40,9 @@
     width: 94%;
 }
 
+.devices-table,
 .table-body table {
     width: 100%;
-}
-.devices-table {
-    width: 99%;
 }
 
 .devices-table thead {
@@ -84,11 +82,18 @@
 .table-body .device-row:hover td:first-child {
     border-left: 2px solid #49108B;
 }
-.table-body .device-row:hover {
+.table-body .device-row:hover .manage-btns .fas {
+    color: #49108B;
     cursor: pointer;
 }
 
 .table-body {
     max-height: 50vh;
     overflow-y: auto;
+}
+
+.manage-btns .fas {
+    color: #797979;
+    margin-left: 16px;
+    transition: all 0.2s ease-in;
 }

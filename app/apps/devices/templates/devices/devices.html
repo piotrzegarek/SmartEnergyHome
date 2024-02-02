@@ -4,8 +4,8 @@
 {% block title %}Devices{% endblock title %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static "core/css/sidebar.css" %}">
-<link rel="stylesheet" href="{% static "core/css/devices.css" %}">
+<link rel="stylesheet" href="{% static "devices/css/sidebar.css" %}">
+<link rel="stylesheet" href="{% static "devices/css/devices.css" %}">
 {% endblock css %}
 
 {% block body %}
@@ -13,21 +13,21 @@
 <div class="container-fluid">
     <div class="main-row row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-0">
-            {% include "core/includes/devices-sidebar.html" %}
+            {% include "devices/includes/devices-sidebar.html" %}
         </div>
         <div class="col p-5">
             <div class="devices-wrapper">
-                <div class="title-wrapper">
+                <div class="title-wrapper prevent-select">
                     <p class="content-title">Your {{type|title}} Devices</p>
                     <div class="count-wrapper">
                         <span>{{ devices|length }}</span>
                     </div>
                 </div>
 
-                <table class="devices-table">
+                <table class="devices-table prevent-select">
                     <thead>
-                        <th width="30%">Name</th>
-                        <th width="25%">Plan usage</th>
+                        <th width="29%">Name</th>
+                        <th width="24%">Plan usage</th>
                         <th width="20%">Energy usage</th>
                         <th width="15%"></th>
                     </thead>
@@ -37,19 +37,14 @@
                         <thead></thead>
                         <tbody>
                             {% for device in devices %}
-                            <tr class="device-row">
+                            <tr class="device-row prevent-select">
                                 <td width="30%">{{device.name}}</td>
                                 <td width="25%">{{device.period_execution}}/{{device.plan_period}}</td>
                                 <td width="20%">20 kWh</td>
-                                <td width="15%"></td>
-                            </tr>
-                            {% endfor %}
-                            {% for device in devices %}
-                            <tr class="device-row">
-                                <td width="30%">{{device.name}}</td>
-                                <td width="25%">{{device.period_execution}}/{{device.plan_period}}</td>
-                                <td width="20%">20 kWh</td>
-                                <td width="15%"></td>
+                                <td width="15%" class="manage-btns">
+                                    <span class="fas fa-pen"></span>
+                                    <span class="fas fa-trash"></span>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
