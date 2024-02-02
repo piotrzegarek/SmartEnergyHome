@@ -16,6 +16,12 @@
             {% include "core/includes/devices-sidebar.html" %}
         </div>
         <div class="col p-5">
+            <div class="back-wrapper mb-1">
+              <a href="{% url 'devices-page' 'consume' %}">
+                <img class="back-arrow-img" src="{% static "icons/back-arrow.svg" %}" alt="Back arrow button">
+                <span class="back-text">Back</span>
+              </a>
+            </div>
             <p class="content-title">Add New Device</p>
             <p class="mb-3">Get personalized plans for your energy management by creating your home model. Add all of your devices that have impact on the energy in your house and get notifications about the devices usage and costs insides.</p>
             <div class="devices-types row">

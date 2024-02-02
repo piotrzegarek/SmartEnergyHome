@@ -16,11 +16,45 @@
             {% include "core/includes/devices-sidebar.html" %}
         </div>
         <div class="col p-5">
-            <p class="content-title">Your {{type|title}} Devices</p>
             <div class="devices-wrapper">
-                {% for device in devices %}
-                <p>{{device.name}}</p>
-                {% endfor %}
+                <div class="title-wrapper">
+                    <p class="content-title">Your {{type|title}} Devices</p>
+                    <div class="count-wrapper">
+                        <span>{{ devices|length }}</span>
+                    </div>
+                </div>
+
+                <table class="devices-table">
+                    <thead>
+                        <th width="30%">Name</th>
+                        <th width="25%">Plan usage</th>
+                        <th width="20%">Energy usage</th>
+                        <th width="15%"></th>
+                    </thead>
+                </table>
+                <div class="table-body">
+                    <table>
+                        <thead></thead>
+                        <tbody>
+                            {% for device in devices %}
+                            <tr class="device-row">
+                                <td width="30%">{{device.name}}</td>
+                                <td width="25%">{{device.period_execution}}/{{device.plan_period}}</td>
+                                <td width="20%">20 kWh</td>
+                                <td width="15%"></td>
+                            </tr>
+                            {% endfor %}
+                            {% for device in devices %}
+                            <tr class="device-row">
+                                <td width="30%">{{device.name}}</td>
+                                <td width="25%">{{device.period_execution}}/{{device.plan_period}}</td>
+                                <td width="20%">20 kWh</td>
+                                <td width="15%"></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

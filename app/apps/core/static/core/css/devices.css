@@ -3,12 +3,92 @@
     height: 100%;
 }
 
+.title-wrapper {
+    vertical-align: middle;
+    padding: 1%;
+    padding-left: 2%;
+}
+
 .content-title {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
+    display: inline-block;
+    margin: 0;
+}
+
+.count-wrapper {
+    display: inline-block;
+    background-color: #F3F8FF;
+    border: 2px solid #49108B;
+    width: 30px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: 1%;
+    margin-bottom: 0.5rem;
+}
+
+.count-wrapper span {
+    font-weight: 500;
+    color: #49108B;
+    font-size: 1rem;
 }
 
 .devices-wrapper {
-    min-height: 10vh;
-    border-top: 2px solid #49108B;
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+    width: 94%;
+}
+
+.table-body table {
+    width: 100%;
+}
+.devices-table {
+    width: 99%;
+}
+
+.devices-table thead {
+    background-color: #F3F8FF;
+}
+
+.devices-table thead th {
+    font-weight: 500;
+    color: #797979;
+    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
+
+}
+
+.devices-table th,
+.table-body table td {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.table-body table td {
+    border-bottom: 1px solid #d8d8d8;
+}
+.table-body table tr:last-child {
+    border-bottom: none;
+}
+
+.device-row,
+.devices-table thead {
+    height: 5vh;
+}
+
+.table-body .device-row td:first-child {
+    border-left: 2px solid #fff;
+    transition: all 0.2s ease-in;
+}
+.table-body .device-row:hover td:first-child {
+    border-left: 2px solid #49108B;
+}
+.table-body .device-row:hover {
+    cursor: pointer;
+}
+
+.table-body {
+    max-height: 50vh;
+    overflow-y: auto;
 }

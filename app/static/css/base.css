@@ -29,3 +29,39 @@ select.form-control:focus,
     box-shadow: none;
     border-color: #49108B;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #e7e7e7;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b1b1b1;
+    border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+.back-arrow-img {
+    width: 40px;
+}
+
+
+.back-wrapper .back-text {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #49108B;
+}
+
+.back-wrapper a {
+    text-decoration: none;
+}
