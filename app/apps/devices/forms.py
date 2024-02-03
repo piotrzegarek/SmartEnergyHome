@@ -1,6 +1,7 @@
-from django.forms import ModelForm, ValidationError
+from django.forms import ChoiceField, ModelForm, ValidationError
 from django.utils.translation import gettext_lazy as _
 
+from .enums import EnergyUnit, PlanPeriod
 from .models import ConsumeEnergyDevice, ProduceEnergyDevice, StoreEnergyDevice
 
 
@@ -24,7 +25,7 @@ class BaseDeviceForm(ModelForm):
 
 
 class BaseDeviceMeta:
-    exclude = ["user"]
+    exclude = ["user", "enabled"]
 
 
 class ConsumeEnergyForm(BaseDeviceForm):
@@ -33,8 +34,14 @@ class ConsumeEnergyForm(BaseDeviceForm):
         error_messages = {
             "period_execution": {
                 "min_value": _("The minimum plan execution count must be grater than 0")
-            }
+            },
+            "energy_consumption": {
+                "min_value": _("Energy consumption can't be lower than 0")
+            },
         }
+
+    plan_period = ChoiceField(choices=PlanPeriod.choices())
+    energy_unit = ChoiceField(choices=EnergyUnit.choices())
 
 
 class StoreEnergyForm(BaseDeviceForm):

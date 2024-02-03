@@ -34,6 +34,23 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group mb-2">
+                            <label for="{{ form.energy_consumption.id_for_label }}">Energy consumption:</label>
+                            {{ form.energy_consumption }}
+                            {{ form.energy_consumption.errors }}
+                            {{ form.energy_unit.errors }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-2">
+                            <label for="{{ form.energy_unit.id_for_label }}">Unit:</label>
+                            {{ form.energy_unit }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-2">
                             <label for="{{ form.period_execution.id_for_label }}">Plan use count:</label>
                             {{ form.period_execution }}
                             {{ form.period_execution.errors }}
