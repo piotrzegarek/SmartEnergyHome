@@ -1,0 +1,34 @@
+{% load static %}
+
+<div class="image-wrapper">
+    <img src="{% static 'images/energy-solars-2.jpg' %}" class="card-img-top" alt="Dishwasher">
+</div>
+<div class="form-wrapper">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group mb-2">
+            <label for="{{ form.name.id_for_label }}">Name:</label>
+            {{ form.name }}
+            {{ form.name.errors }}
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mb-2">
+                    <label for="{{ form.capacity.id_for_label }}">Energy capacity:</label>
+                    {{ form.capacity }}
+                    {{ form.capacity.errors }}
+                    {{ form.capacity_unit.errors }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mb-2">
+                    <label for="{{ form.capacity_unit.id_for_label }}">Unit:</label>
+                    {{ form.capacity_unit }}
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn purple-btn mt-2">Add device<span class="fas fa-chevron-right ms-2"></span></button>
+    </form>
+</div>

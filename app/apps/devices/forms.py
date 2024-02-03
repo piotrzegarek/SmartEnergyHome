@@ -1,7 +1,7 @@
 from django.forms import ChoiceField, ModelForm, ValidationError
 from django.utils.translation import gettext_lazy as _
 
-from .enums import EnergyUnit, PlanPeriod
+from .enums import CapacityUnit, EnergyUnit, PlanPeriod
 from .models import ConsumeEnergyDevice, ProduceEnergyDevice, StoreEnergyDevice
 
 
@@ -47,8 +47,15 @@ class ConsumeEnergyForm(BaseDeviceForm):
 class StoreEnergyForm(BaseDeviceForm):
     class Meta(BaseDeviceMeta):
         model = StoreEnergyDevice
+        error_messages = {
+            "capacity_unit": {"min_value": _("Capacity can't be lower than 0")},
+        }
+
+    capacity_unit = ChoiceField(choices=CapacityUnit.choices())
 
 
 class ProduceEnergyForm(BaseDeviceForm):
     class Meta(BaseDeviceMeta):
         model = ProduceEnergyDevice
+
+    capacity_unit = ChoiceField(choices=CapacityUnit.choices())

@@ -21,3 +21,28 @@
     color: #e75a5a;
     margin-top: 5px;
 }
+
+.main-add-wrapper {
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+}
+
+.main-add-wrapper .image-wrapper {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+}
+
+.main-add-wrapper .image-wrapper img {
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 2px solid #d8d8d8;
+}
+
+.main-add-wrapper .form-wrapper {
+    max-height: 37vh;
+    width: 100%;
+    padding: 1%;
+    overflow: auto;
+}

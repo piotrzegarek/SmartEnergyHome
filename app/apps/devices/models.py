@@ -16,7 +16,8 @@ class ConsumeEnergyDevice(models.Model):
 class StoreEnergyDevice(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=120)
-    capacity = models.IntegerField(validators=[MinValueValidator(1)])
+    capacity = models.IntegerField(validators=[MinValueValidator(0)])
+    capacity_unit = models.CharField(max_length=10)
     enabled = models.BooleanField(default=True)
 
 
@@ -24,4 +25,5 @@ class ProduceEnergyDevice(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=120)
     capacity = models.IntegerField(validators=[MinValueValidator(1)])
+    capacity_unit = models.CharField(max_length=10)
     enabled = models.BooleanField(default=True)

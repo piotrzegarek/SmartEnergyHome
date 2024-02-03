@@ -35,7 +35,8 @@ select.form-control:focus,
 /* width */
 ::-webkit-scrollbar {
     width: 6px;
-  }
+    height: 6px;
+}
 
 /* Track */
 ::-webkit-scrollbar-track {

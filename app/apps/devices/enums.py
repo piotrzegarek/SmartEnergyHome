@@ -24,7 +24,19 @@ class EnergyUnit(Enum):
     """Enum to represent units of energy consumption."""
 
     W = "W"
+    KW = "kW"
+    WH = "Wh"
     KWH = "kWh"
+
+    @classmethod
+    def choices(cls):
+        return [(key.name, key.value) for key in cls]
+
+
+class CapacityUnit(Enum):
+    WH = "Wh"
+    KWH = "kWh"
+    MWH = "MWh"
 
     @classmethod
     def choices(cls):
