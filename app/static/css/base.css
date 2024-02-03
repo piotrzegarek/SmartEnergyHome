@@ -74,3 +74,29 @@ select.form-control:focus,
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
 }
+
+.popup-wrapper {
+    position: absolute;
+    background-color: #6706c7;
+    color: #fff;
+    right: 2%;
+    bottom: 2%;
+    border-radius: 8px;
+    padding: 10px 16px 10px 10px;
+    display: flex;
+    opacity: 0;
+    transition: opacity .4s ease-in-out;
+}
+
+.popup-wrapper.show {
+    opacity: 1;
+}
+
+.popup-wrapper .popup-icon {
+    width: 24px;
+}
+
+.popup-wrapper .popup-text {
+    margin: 0;
+    margin-left: 10px;
+}

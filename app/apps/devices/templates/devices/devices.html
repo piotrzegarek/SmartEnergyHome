@@ -9,7 +9,7 @@
 {% endblock css %}
 
 {% block scripts %}
-<script src="{% static "devices/js/devices.js" %}"></script>
+<script src="{% static "devices/js/devices.js" %}" async></script>
 {% endblock scripts %}
 
 {% block body %}
@@ -42,15 +42,15 @@
                         <thead></thead>
                         <tbody>
                             {% for device in devices %}
-                            <tr class="device-row prevent-select">
-                                <td width="30%">{{device.name}}</td>
+                            <tr class="device-row prevent-select" data-id="{{device.id}}">
+                                <td class="device-name" width="30%">{{device.name}}</td>
                                 <td width="25%">{{device.period_execution}}/{{device.plan_period}}</td>
                                 <td width="20%">20 kWh</td>
                                 <td width="15%" class="manage-btns">
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#editDeviceModal">
+                                    <button type="button">
                                         <span class="fas fa-pen"></span>
                                     </button>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#deleteDeviceModal">
+                                    <button class="delete-device-btn" type="button">
                                         <span class="fas fa-trash"></span>
                                     </button>
                                 </td>

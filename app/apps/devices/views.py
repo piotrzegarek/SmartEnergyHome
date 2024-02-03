@@ -1,14 +1,16 @@
+import json
 from typing import Any
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models.query import QuerySet
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import redirect, render
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 
 from .consts import dev_type_to_form, dev_type_to_model
+from .exceptions import DeviceNotOwned, ObjectNotFound
 
 
 class DevicesView(LoginRequiredMixin, ListView):
@@ -20,11 +22,7 @@ class DevicesView(LoginRequiredMixin, ListView):
         if device_type not in ["consume", "store", "produce"]:
             raise Http404("Object does not exist")
 
-        query = (
-            dev_type_to_model[device_type].objects.filter(user=self.request.user).all()
-        )
-
-        return query
+        return dev_type_to_model[device_type].by_user(self.request.user)
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
@@ -52,9 +50,7 @@ class DevicesAddView(LoginRequiredMixin, View):
         form = self._get_form(dev_type)(request.POST, user=request.user)
 
         if form.is_valid():
-            new_device = form.save(commit=False)
-            new_device.user = request.user
-            new_device.save()
+            dev_type_to_model[dev_type].create(form, request.user)
             return redirect("devices-page", dev_type=dev_type)
 
         return render(
@@ -69,3 +65,18 @@ class DevicesAddView(LoginRequiredMixin, View):
             return form
         except KeyError:
             raise Http404("Object does not exist")
+
+
+class RemoveDevice(View):
+    def delete(self, request):
+        data = json.load(request)
+        device_id = data.get("device_id")
+        device_type = data.get("device_type")
+        if device_id and device_type:
+            try:
+                dev_type_to_model[device_type].remove(device_id, request.user.id)
+                return JsonResponse({"msg": "Device removed successfully."})
+            except (ObjectNotFound, DeviceNotOwned):
+                return JsonResponse({"msg": "Something went wrong."}, status=400)
+        else:
+            return JsonResponse({"msg": "Unvalid request."}, status=400)
