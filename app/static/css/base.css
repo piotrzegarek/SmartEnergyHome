@@ -16,9 +16,11 @@
     color: #fff;
 }
 
-.purple-btn:hover {
-    background-color: #6706c7;
-    color: #fff
+.purple-btn:hover,
+.purple-btn:active,
+.purple-btn:focus {
+    background-color: #6706c7 !important;
+    color: #fff !important;
 }
 
 input.form-control:focus,

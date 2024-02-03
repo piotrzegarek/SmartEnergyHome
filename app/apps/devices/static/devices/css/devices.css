@@ -95,8 +95,19 @@
 
 .manage-btns .fas {
     color: #797979;
-    margin-left: 16px;
+    margin-left: 12px;
+    margin-right: 12px;
     transition: all 0.2s ease-in;
+}
+
+.manage-btns button {
+    background-color: #fff;
+    border: none;
+}
+
+.table-body .device-row:hover .manage-btns button:hover .fas {
+    color: #9549ec;
+    transition: none;
 }
 
 .empty-info {

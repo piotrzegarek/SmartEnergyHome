@@ -8,6 +8,10 @@
 <link rel="stylesheet" href="{% static "devices/css/devices.css" %}">
 {% endblock css %}
 
+{% block scripts %}
+<script src="{% static "devices/js/devices.js" %}"></script>
+{% endblock scripts %}
+
 {% block body %}
 
 <div class="container-fluid">
@@ -43,20 +47,26 @@
                                 <td width="25%">{{device.period_execution}}/{{device.plan_period}}</td>
                                 <td width="20%">20 kWh</td>
                                 <td width="15%" class="manage-btns">
-                                    <span class="fas fa-pen"></span>
-                                    <span class="fas fa-trash"></span>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#editDeviceModal">
+                                        <span class="fas fa-pen"></span>
+                                    </button>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#deleteDeviceModal">
+                                        <span class="fas fa-trash"></span>
+                                    </button>
                                 </td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
                     {% else %}
-                    <p class="empty-info prevent-select">You don't have any devices yet.</p>
+                    <p class="empty-info prevent-select">You don't have any {{type}} devices yet.</p>
                     {% endif %}
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+{% include "devices/includes/delete-modal.html" %}
 
 {% endblock body %}
