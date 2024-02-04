@@ -10,6 +10,9 @@ class BaseDeviceForm(ModelForm):
         if kwargs.get("user"):
             self.user = kwargs.get("user")
             kwargs.pop("user")
+        if kwargs.get("id"):
+            self.id = kwargs.get("id")
+            kwargs.pop("id")
         super(BaseDeviceForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update({"class": "form-control"})
@@ -18,7 +21,14 @@ class BaseDeviceForm(ModelForm):
     def clean_name(self):
         name = self.cleaned_data["name"]
 
-        if self._meta.model.objects.filter(name=name, user=self.user).exists():
+        if not hasattr(self, "id"):
+            self.id = None
+
+        if (
+            self._meta.model.objects.filter(name=name, user=self.user)
+            .exclude(id=self.id)
+            .exists()
+        ):
             raise ValidationError("Device with this name already exists.")
 
         return name

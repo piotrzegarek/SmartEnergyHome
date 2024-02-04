@@ -1,0 +1,19 @@
+<div class="modal fade" id="editDeviceModal" tabindex="-1" aria-labelledby="editDeviceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="editDeviceModalLabel">Edit device</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% if type == 'consuming' %}
+                {% include "devices/includes/edit_forms/consume-edit-form.html" %}
+                {% elif type == 'producing' %}
+                {% include "devices/includes/edit_forms/produce-edit-form.html" %}
+                {% else %}
+                {% include "devices/includes/edit_forms/store-edit-form.html" %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

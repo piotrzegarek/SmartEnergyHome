@@ -43,11 +43,19 @@
                         <tbody>
                             {% for device in devices %}
                             <tr class="device-row prevent-select" data-id="{{device.id}}">
-                                <td class="device-name" width="30%">{{device.name}}</td>
-                                <td width="25%">{{device.period_execution}}/{{device.plan_period}}</td>
-                                <td width="20%">20 kWh</td>
+                                <td class="dev-data device-name" data-name="name" width="30%">{{device.name}}</td>
+                                <td width="25%">
+                                    <span class="dev-data" data-name="period_execution">{{device.period_execution}}</span>
+                                    <span>/</span>
+                                    <span class="dev-data" data-name="plan_period">{{device.plan_period|title}}</span>
+                                </td>
+                                <td width="20%">
+                                    <span class="dev-data" data-name="energy_consumption">{{device.energy_consumption}}</span>
+                                    <span> </span>
+                                    <span class="dev-data" data-name="energy_unit">{{device.energy_unit}}</span>
+                                </td>
                                 <td width="15%" class="manage-btns">
-                                    <button type="button">
+                                    <button class="edit-device-btn" type="button">
                                         <span class="fas fa-pen"></span>
                                     </button>
                                     <button class="delete-device-btn" type="button">
@@ -68,5 +76,6 @@
 </div>
 
 {% include "devices/includes/delete-modal.html" %}
+{% include "devices/includes/edit-modal.html" %}
 
 {% endblock body %}

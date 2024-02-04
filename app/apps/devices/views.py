@@ -10,7 +10,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 
 from .consts import dev_type_to_form, dev_type_to_model
-from .exceptions import DeviceNotOwned, ObjectNotFound
+from .exceptions import DeviceNotOwned, InvalidForm, ObjectNotFound
 
 
 class DevicesView(LoginRequiredMixin, ListView):
@@ -27,17 +27,54 @@ class DevicesView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         device_type = self.kwargs.get("dev_type")
+        form = self._get_form(device_type)
         context["type"] = device_type[0:-1] + "ing"
+        context["form"] = form
 
         return context
+
+    def _get_form(self, dev_type: str):
+        try:
+            form = dev_type_to_form[dev_type]
+            return form
+        except KeyError:
+            raise Http404("Object does not exist")
 
 
 class DevicesAddPickView(LoginRequiredMixin, TemplateView):
     template_name = "devices/devices-add.html"
 
 
+class DevicesUpdateView(LoginRequiredMixin, View):
+    def post(self, request, dev_type: str):
+        data = json.load(request)
+        dev_id = data.get("id")
+        form = self._get_form(dev_type)
+
+        try:
+            dev_type_to_model[dev_type].update(dev_id, request.user, data, form)
+            return JsonResponse(
+                {"msg": "Device updated successfully", "device_data": data}
+            )
+        except DeviceNotOwned:
+            return JsonResponse({"msg": "You don't own this device."}, status=403)
+        except ObjectNotFound:
+            return JsonResponse(
+                {"msg": "Device doesn't exist. Refresh the page."}, status=404
+            )
+        except InvalidForm as e:
+            return JsonResponse({"errors": e.errors}, status=400)
+
+    def _get_form(self, dev_type: str):
+        try:
+            form = dev_type_to_form[dev_type]
+            return form
+        except KeyError:
+            raise Http404("Object does not exist")
+
+
 class DevicesAddView(LoginRequiredMixin, View):
-    def get(self, request, dev_type):
+    def get(self, request, dev_type: str):
         form = self._get_form(dev_type)
 
         return render(
@@ -46,7 +83,7 @@ class DevicesAddView(LoginRequiredMixin, View):
             {"form": form, "type": dev_type[0:-1] + "ing"},
         )
 
-    def post(self, request, dev_type):
+    def post(self, request, dev_type: str):
         form = self._get_form(dev_type)(request.POST, user=request.user)
 
         if form.is_valid():
@@ -59,7 +96,7 @@ class DevicesAddView(LoginRequiredMixin, View):
             {"form": form, "type": dev_type[0:-1] + "ing"},
         )
 
-    def _get_form(self, dev_type):
+    def _get_form(self, dev_type: str):
         try:
             form = dev_type_to_form[dev_type]
             return form
