@@ -2,8 +2,8 @@
 
 BOT_NAME = "energy_scraper"
 
-SPIDER_MODULES = ["energy_scraper.spiders"]
-NEWSPIDER_MODULE = "energy_scraper.spiders"
+SPIDER_MODULES = ["app.energy_scraper.spiders"]
+NEWSPIDER_MODULE = "app.energy_scraper.spiders"
 USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64; rv:7.0.1) Gecko/20100101 Firefox/7.7"
 
 # Obey robots.txt rules

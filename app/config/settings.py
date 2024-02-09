@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 
+from celery.schedules import crontab
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", "*")
 DEBUG = os.environ.get("DEBUG", False)
@@ -20,7 +22,8 @@ INSTALLED_APPS = [
     "app.apps.authenticator",
     "app.apps.core",
     "app.apps.devices",
-    "app.apps.energy_scraper",
+    "app.apps.predictor",
+    "app.energy_scraper",
 ]
 
 MIDDLEWARE = [
@@ -120,3 +123,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = "/auth/login"
 LOGOUT_REDIRECT_URL = "/auth/login"
+
+CELERY_BEAT_SCHEDULE = {
+    "run_energy_scraper": {
+        "task": "app.energy_scraper.tasks.run_energy_scraper",
+        "schedule": crontab(minute="*/1"),
+    },
+}

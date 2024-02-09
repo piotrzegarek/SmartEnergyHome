@@ -3,8 +3,9 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
 
-from core.models import EnergyPrice
 from scrapy_djangoitem import DjangoItem
+
+from app.apps.core.models import EnergyPrice
 
 
 class EnergyPriceItem(DjangoItem):
