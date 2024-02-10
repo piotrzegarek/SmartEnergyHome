@@ -23,7 +23,8 @@ INSTALLED_APPS = [
     "app.apps.core",
     "app.apps.devices",
     "app.apps.predictor",
-    "app.energy_scraper",
+    "app.apps.planner",
+    "app.apps.energy_scraper",
 ]
 
 MIDDLEWARE = [
@@ -126,7 +127,7 @@ LOGOUT_REDIRECT_URL = "/auth/login"
 
 CELERY_BEAT_SCHEDULE = {
     "run_energy_scraper": {
-        "task": "app.energy_scraper.tasks.run_energy_scraper",
-        "schedule": crontab(minute="*/1"),
+        "task": "app.apps.energy_scraper.tasks.run_energy_scraper",
+        "schedule": crontab(hour="20"),
     },
 }

@@ -1,9 +1,9 @@
 # Scrapy settings for energy_scraper project
 
-BOT_NAME = "energy_scraper"
+BOT_NAME = "app.apps.energy_scraper"
 
-SPIDER_MODULES = ["app.energy_scraper.spiders"]
-NEWSPIDER_MODULE = "app.energy_scraper.spiders"
+SPIDER_MODULES = ["app.apps.energy_scraper.spiders"]
+NEWSPIDER_MODULE = "app.apps.energy_scraper.spiders"
 USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64; rv:7.0.1) Gecko/20100101 Firefox/7.7"
 
 # Obey robots.txt rules
@@ -28,7 +28,7 @@ DUPEFILTER_CLASS = "scrapy_splash.SplashAwareDupeFilter"
 
 # Configure item pipelines
 ITEM_PIPELINES = {
-    "energy_scraper.pipelines.EnergyScraperPipeline": 300,
+    "app.apps.energy_scraper.pipelines.EnergyScraperPipeline": 300,
 }
 
 # Set settings whose default value is deprecated to a future-proof value

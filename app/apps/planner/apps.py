@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class PredictorConfig(AppConfig):
+class PlannerConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "app.energy_scraper"
+    name = "app.apps.planner"
