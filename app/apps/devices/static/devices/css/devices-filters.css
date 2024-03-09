@@ -1,0 +1,15 @@
+.filters-wrapper {
+    width: 94%;
+    height: 10vh;
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+    background-color: #6706c7;
+    padding: 1%;
+    padding-left: 2%;
+}
+
+.filters-title {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.2rem;
+}

@@ -35,7 +35,7 @@ class BaseDeviceForm(ModelForm):
 
 
 class BaseDeviceMeta:
-    exclude = ["user", "enabled"]
+    exclude = ["user"]
 
 
 class ConsumeEnergyForm(BaseDeviceForm):

@@ -66,10 +66,10 @@ class ConsumeEnergyDevice(Device):
 
 
 class StoreEnergyDevice(Device):
-    capacity = models.IntegerField(validators=[MinValueValidator(0)])
+    capacity = models.FloatField(validators=[MinValueValidator(0)])
     capacity_unit = models.CharField(max_length=10)
 
 
 class ProduceEnergyDevice(Device):
-    capacity = models.IntegerField(validators=[MinValueValidator(1)])
+    capacity = models.FloatField(validators=[MinValueValidator(1)])
     capacity_unit = models.CharField(max_length=10)

@@ -1,0 +1,46 @@
+<table class="devices-table prevent-select">
+    <thead>
+        <th width="24%">Name</th>
+        <th width="20%">Plan usage</th>
+        <th width="20%">Energy usage</th>
+        <th width="12%">Enabled</th>
+        <th width="12%"></th>
+    </thead>
+</table>
+<div class="table-body">
+    {% if devices %}
+    <table>
+        <thead></thead>
+        <tbody>
+            {% for device in devices %}
+            <tr class="device-row prevent-select" data-id="{{device.id}}">
+                <td class="dev-data device-name" data-name="name" width="25%">{{device.name}}</td>
+                <td width="21%">
+                    <span class="dev-data" data-name="period_execution">{{device.period_execution}}</span>
+                    <span>/</span>
+                    <span class="dev-data" data-name="plan_period">{{device.plan_period|title}}</span>
+                </td>
+                <td width="21%">
+                    <span class="dev-data" data-name="energy_consumption">{{device.energy_consumption}}</span>
+                    <span> </span>
+                    <span class="dev-data" data-name="energy_unit">{{device.energy_unit}}</span>
+                </td>
+                <td width="12%">
+                    <span class="dev-data" data-name="enabled">{{device.enabled}}</span>
+                </td>
+                <td width="12%" class="manage-btns">
+                    <button class="edit-device-btn" type="button">
+                        <span class="fas fa-pen"></span>
+                    </button>
+                    <button class="delete-device-btn" type="button">
+                        <span class="fas fa-trash"></span>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="empty-info prevent-select">You don't have any {{type}} devices yet.</p>
+    {% endif %}
+</div>
